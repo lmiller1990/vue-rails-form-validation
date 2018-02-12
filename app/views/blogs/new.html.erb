@@ -1,0 +1,45 @@
+<h1>Blogs#new</h1>
+<p>Find me in app/views/blogs/new.html.erb</p>
+
+<%= form_with model: @blog do |f| %>
+  <%= f.text_field :title %>
+  <%= f.submit %>
+<% end %>
+<%= content_tag :div,
+  id: 'blog-form-vue',
+  data: {
+    blog: @blog.to_json()
+  } do %>
+
+  <form @submit.prevent="submit">
+    <label for="title">Title</label>
+    <input v-model="blog.title" id="title">
+    <div class="error" v-if="blog.title.length <= 5">
+      The title needs to be at least 5 characters.
+    </div>
+
+    <label for="blog-body">Body</label>
+    <input id="blog-body" v-model="blog.body">
+    <div class="error" v-if="blog.body.length <= 10">
+      The body needs to be at least 10 characters.
+    </div>
+
+    <input 
+      type="submit" 
+      value="Create blog" 
+      :disabled="!valid"
+    >
+</form>
+<% end %>
+
+<style>
+label, input {
+  display: block;
+} 
+.error {
+  margin: 5px 0px 10px 10px;
+}
+input[type="submit"] {
+  margin: 10px;
+}
+</style>
