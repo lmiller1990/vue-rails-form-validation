@@ -2,20 +2,15 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 #
-console.log 'blogs'
-
-template = """
-"""
-
 document.addEventListener 'DOMContentLoaded', () ->
   el = document.getElementById('blog-form-vue')
-  blog = JSON.parse(el.dataset.blog)
 
   if el
+    blog = JSON.parse(el.dataset.blog)
     csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content')
     new Vue({
       el: el,
-      
+
       data: ->
         blog: blog
         csrfToken: csrfToken
@@ -46,4 +41,7 @@ document.addEventListener 'DOMContentLoaded', () ->
 
         submit: ()->
           window.fetch @buildRequest()       
+          .then (data) -> 
+            if data.status == 201
+              window.location.href = '/blogs'
     })
