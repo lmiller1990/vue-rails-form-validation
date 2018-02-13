@@ -1,24 +1,3 @@
-# README
+Demo app + article about using Vue.js to validate Ruby on Rails forms.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Article: https://medium.com/@lachlanmiller_52885/form-validation-in-rails-with-vue-js-1910ec3c80c9
