@@ -1,2 +1,8 @@
 <h1>Blogs#index</h1>
 <p>Find me in app/views/blogs/index.html.erb</p>
+
+<ul>
+  <% @blogs.each do |blog| %>
+    <li>Title: <%= blog.title %> body: <%= blog.body %></li>
+  <% end %>
+</ul>
