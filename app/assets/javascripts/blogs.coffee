@@ -10,7 +10,7 @@ document.addEventListener 'DOMContentLoaded', () ->
     csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content')
     new Vue({
       el: el,
-      
+
       data: ->
         blog: blog
         csrfToken: csrfToken
@@ -41,4 +41,7 @@ document.addEventListener 'DOMContentLoaded', () ->
 
         submit: ()->
           window.fetch @buildRequest()       
+          .then (data) -> 
+            if data.status == 201
+              window.location.href = '/blogs'
     })

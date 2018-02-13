@@ -3,8 +3,17 @@ class BlogsController < ApplicationController
     @blogs = Blog.all
   end
 
+  def show
+
+  end
+
   def create
-    @blog = Blog.create(blog_params)
+    @blog = Blog.new(blog_params)
+    if @blog.save!
+      render json: {}, status: :created
+    else
+      return :internal_server_error
+    end
   end
 
   def new
